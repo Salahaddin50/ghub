@@ -10,12 +10,18 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        app: path.resolve(__dirname, 'index.html')
+      }
+    }
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
-    }
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   server: {
     port: 3000,
