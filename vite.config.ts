@@ -6,7 +6,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   root: '.',
-  base: '/',
+  base: './',
   publicDir: 'public',
   resolve: {
     alias: {
@@ -35,9 +35,7 @@ export default defineConfig({
     manifest: true,
     minify: 'terser',
     rollupOptions: {
-      input: {
-        app: path.resolve(__dirname, 'index.html')
-      }
+      input: path.resolve(__dirname, 'index.html')
     }
   },
   optimizeDeps: {
