@@ -33,13 +33,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     manifest: true,
-    minify: 'terser',
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        app: path.resolve(__dirname, 'src/main.tsx')
-      }
-    }
+    minify: 'terser'
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
