@@ -5,9 +5,13 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  root: '.',
-  base: './',
+  root: path.resolve(__dirname),
   publicDir: 'public',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -28,17 +32,5 @@ export default defineConfig({
         changeOrigin: true
       }
     }
-  },
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    manifest: true,
-    minify: 'terser',
-    rollupOptions: {
-      input: path.resolve(__dirname, 'index.html')
-    }
-  },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  }
 });
