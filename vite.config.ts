@@ -36,7 +36,8 @@ export default defineConfig({
     minify: 'terser',
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html')
+        main: path.resolve(__dirname, 'index.html'),
+        app: path.resolve(__dirname, 'src/main.tsx')
       }
     }
   },
