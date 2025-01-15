@@ -6,8 +6,13 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   root: '.',
-  base: '/',
+  base: './',
   publicDir: 'public',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
   server: {
     port: 3000,
     host: true,
@@ -29,6 +34,11 @@ export default defineConfig({
     assetsDir: 'assets',
     manifest: true,
     minify: 'terser',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
